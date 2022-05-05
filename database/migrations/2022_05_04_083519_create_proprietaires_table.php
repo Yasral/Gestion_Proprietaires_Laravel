@@ -19,11 +19,12 @@ return new class extends Migration
             $table->string('Prenom_proprietaire');
             $table->date('Date_naissance');
             $table->string('Lieu_naissance');
-            $table->bigInteger('code_piece_identite');
-            $table->bigInteger('Numero_piece_identite');
+            $table->string('code_piece_identite');
+            $table->string('Numero_piece_identite');
             $table->string('Adresse');
             $table->string('Email')->unique();
             $table->string('genre');
+            $table->string('civilite');
             $table->timestamps();
         });
     }

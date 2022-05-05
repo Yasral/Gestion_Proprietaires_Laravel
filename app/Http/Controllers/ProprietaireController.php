@@ -34,8 +34,24 @@ class ProprietaireController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+
+        $owner = new Proprietaire();
+
+        $owner->Nom_proprietaire = $request->Nom_proprietaire;
+        $owner->Prenom_proprietaire = $request->Prenom_proprietaire;
+        $owner->Date_naissance = $request->Date_naissance;
+        $owner->Lieu_naissance = $request->Lieu_naissance;
+        $owner->code_piece_identite = $request->code_piece_identite;
+        $owner->Numero_piece_identite = $request->Numero_piece_identite;
+        $owner->Adresse = $request->Adresse;
+        $owner->Email = $request->Email;
+        $owner->genre = $request->genre;
+        $owner->civilite = $request->civilite;
+
+        $owner->save();
+
+        return redirect('/liste');
     }
 
     /**
@@ -46,7 +62,10 @@ class ProprietaireController extends Controller
      */
     public function show(Proprietaire $proprietaire)
     {
-        //
+        $proprietaire = Proprietaire::all();
+        return view('proprietaire.liste', [
+            'proprietaires' => $proprietaire
+        ]);
     }
 
     /**

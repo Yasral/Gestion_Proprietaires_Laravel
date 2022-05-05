@@ -24,5 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/proprietaire', [ProprietaireController::class, 'create']);
+Route::post('/proprietaire', [ProprietaireController::class, 'store']);
+Route::get('/liste', [ProprietaireController::class, 'show']);
 
 require __DIR__.'/auth.php';
