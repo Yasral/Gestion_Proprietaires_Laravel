@@ -49,7 +49,7 @@
                                     </a>
                                     <!-- Some test -->
                                     
-                                        <a class="table-link-padding" href="#">
+                                        <a class="table-link-padding" href="{{'/proprietaire/edit/'.$proprietaire->id}}">
                                             <span>
                                                 <ion-icon name="refresh-outline"></ion-icon>
                                             </span>

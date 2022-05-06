@@ -51,7 +51,13 @@ class ProprietaireController extends Controller
 
         $owner->save();
 
-        return redirect('/liste');
+        return redirect('/proprietaire/liste');
+    }
+
+    public function updateDetail($id)
+    {
+        $owner = Proprietaire::find($id);
+        return view('proprietaire.modificationDetail', compact('owner'));
     }
 
     /**
@@ -74,9 +80,22 @@ class ProprietaireController extends Controller
      * @param  \App\Models\Proprietaire  $proprietaire
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proprietaire $proprietaire)
+    public function edit(Request $request, $id)
     {
-        //
+        $owner = Proprietaire::find($id);
+        $owner->Nom_proprietaire = $request->Nom_proprietaire;
+        $owner->Prenom_proprietaire = $request->Prenom_proprietaire;
+        $owner->Date_naissance = $request->Date_naissance;
+        $owner->Lieu_naissance = $request->Lieu_naissance;
+        $owner->code_piece_identite = $request->code_piece_identite;
+        $owner->Numero_piece_identite = $request->Numero_piece_identite;
+        $owner->Adresse = $request->Adresse;
+        $owner->Email = $request->Email;
+        $owner->genre = $request->genre;
+        $owner->civilite = $request->civilite;
+        $owner->update();
+
+        return redirect('/proprietaire/liste');
     }
 
     /**

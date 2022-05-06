@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proprietaire extends Model
 {
-    
-
-    protected $fillable = [
-         'Prenom_proprietaire', 'Date_naissance', 'Lieu_naissance', 'code_piece_identite', 'Numero_piece_identite', 'genre', 'civilite', 'Adresse', 'Email'
-     ];
+    protected $guarded = ['id'];
 
     use HasFactory;
 

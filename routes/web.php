@@ -25,6 +25,9 @@ Route::get('/dashboard', function () {
 
 Route::get('/proprietaire', [ProprietaireController::class, 'create']);
 Route::post('/proprietaire', [ProprietaireController::class, 'store']);
-Route::get('/liste', [ProprietaireController::class, 'show']);
+Route::get('/proprietaire/liste', [ProprietaireController::class, 'show']);
+
+Route::get('/proprietaire/edit/{id}', [ProprietaireController::class, 'updateDetail']);
+Route::post('/proprietaire/edit/{id}', [ProprietaireController::class, 'edit']);
 
 require __DIR__.'/auth.php';
