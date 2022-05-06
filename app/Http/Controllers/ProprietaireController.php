@@ -116,8 +116,10 @@ class ProprietaireController extends Controller
      * @param  \App\Models\Proprietaire  $proprietaire
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proprietaire $proprietaire)
+    public function destroy(Proprietaire $proprietaire, $id)
     {
-        //
+        $proprietaire = Proprietaire::find($id);
+        $proprietaire->delete();
+        return redirect('/proprietaire/liste');
     }
 }

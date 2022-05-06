@@ -57,7 +57,7 @@
                                         <!-- <form action="" method="POST"> -->
                                             <!-- <input type="submit" value="Supprimer"> -->
 
-                                            <a class="table-link-padding" href="#">
+                                            <a class="table-link-padding" href="{{'/proprietaire/delete/'.$proprietaire->id}}">
                                                 <span>
                                                     <ion-icon name="trash-outline"></ion-icon>
                                                 </span>
