@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Region;
+use App\Models\Propriete;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Quartier extends Model
 {
@@ -12,11 +14,11 @@ class Quartier extends Model
     use HasFactory;
 
     public function region(){
-        return $this->belongTo(region::class);
+        return $this->belongsTo(Region::class);
     }
 
     public function propriete()
     {
-        return $this->hasmany(propriete::class);
+        return $this->hasmany(Propriete::class);
     }
 }

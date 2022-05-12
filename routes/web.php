@@ -31,4 +31,8 @@ Route::get('/proprietaire/edit/{id}', [ProprietaireController::class, 'updateDet
 Route::post('/proprietaire/edit/{id}', [ProprietaireController::class, 'edit']);
 Route::get('/proprietaire/delete/{id}', [ProprietaireController::class, 'destroy']);
 
+Route::get('/propriete', [ProprieteController::class, 'create']);
+Route::post('/propriete', [ProprieteController::class, 'store']);
+Route::get('/propriete/liste', [ProprieteController::class, 'show']);
+
 require __DIR__.'/auth.php';

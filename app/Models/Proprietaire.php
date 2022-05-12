@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Propriete;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Proprietaire extends Model
 {
@@ -13,6 +14,6 @@ class Proprietaire extends Model
 
     public function propriete()
     {
-        return $this->hasmany(propriete::class);
+        return $this->hasmany(Propriete::class);
     }
 }

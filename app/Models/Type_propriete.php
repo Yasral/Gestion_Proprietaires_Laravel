@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Propriete;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Type_propriete extends Model
 {
-    use HasFactory;
-
     protected $guarded = ['id'];
+    use HasFactory;
 
     public function propriete()
     {
-        return $this->hasMany(propriete::class);
+        return $this->hasMany(Propriete::class);
     }
 }

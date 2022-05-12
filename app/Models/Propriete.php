@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Quartier;
+use App\Models\Proprietaire;
+use App\Models\Type_propriete;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Propriete extends Model
 {
@@ -12,16 +15,16 @@ class Propriete extends Model
 
     public function proprietaire()
     {
-        return $this->belongTo(proprietaire::class);
+        return $this->belongsTo(Proprietaire::class);
     }
 
-    public function type_propriete()
+    public function typePropriete()
     {
-        return $this->belongTo(type_propriete::class);
+        return $this->belongsTo(Type_propriete::class);
     }
     
     public function quartier()
     {
-        return $this->belongTo(quartier::class);
+        return $this->belongsTo(Quartier::class);
     }
 }
