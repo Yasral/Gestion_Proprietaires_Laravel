@@ -35,4 +35,6 @@ Route::get('/propriete', [ProprieteController::class, 'create']);
 Route::post('/propriete', [ProprieteController::class, 'store']);
 Route::get('/propriete/liste', [ProprieteController::class, 'show']);
 
+Route::get('/propriete/edit/{id}', [ProprieteController::class, 'updateDetail']);
+Route::post('/propriete/edit/{id}', [ProprieteController::class, 'edit']);
 require __DIR__.'/auth.php';

@@ -18,18 +18,17 @@ return new class extends Migration
             $table->string('Adresse_propriete');
             $table->integer('Superficie');
             $table->integer('Nbre_etage');
+            
             $table->foreignId('proprietaire_id')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
+
             $table->foreignId('type_id')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->foreignId('type_proprietes_id')
-            ->constrained()
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+
             $table->foreignId('quartier_id')
             ->constrained()
             ->onUpdate('cascade')

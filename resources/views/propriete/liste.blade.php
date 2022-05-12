@@ -21,6 +21,7 @@
                             <th>Superficie</th>
                             <th>Nombre D'etages</th>
                             <th>Proprietaire</th>
+                            <th>Type De Propriete</th>
                             <th>Quartier</th>
                             <th>Parametres</th>
                         </tr>
@@ -32,8 +33,8 @@
                                 <td>{{$propriete->Superficie}}</td>
                                 <td>{{$propriete->Nbre_etage}}</td>
                                 <td>{{$propriete->proprietaire->Prenom_proprietaire . " ". $propriete->proprietaire->Nom_proprietaire}}</td>
-                                <td>{{$propriete->quartier->Libelle_quartier}}</td>
                                 <td>{{$propriete->type->Libelle}}</td>
+                                <td>{{$propriete->quartier->Libelle_quartier}}</td>
                                 <td class = "options">
                                     <a class="table-link-padding" href="#">
                                         <span>

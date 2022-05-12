@@ -1,79 +1,63 @@
 @include('components.reusables.siteheader')
 <div class="container">
-    <h1 class="title">Modification Proprietaire</h1>
-    <form method="POST" action="{{url('proprietaire/edit/'.$owner->id)}}">
+    <h1 class="title">Ajout Propriete</h1>
+    <form method="POST" action="{{ url('propriete/edit/'.$propriete->id) }}">
         @csrf
         <div class="user-details">
 
+            <!-- <div class="input-box">
+                <span class="details">Proprietaire</span>
+                <input type="text" id="" placeholder="Choisisser le proprietaire"  name="proprietaire_id">
+            </div> -->
+
             <div class="input-box">
-                <span class="details">Nom</span>
-                <input type="text" id="" placeholder="Entrez votre nom" name="Nom_proprietaire" value="{{$owner->Nom_proprietaire}}">
+                <span class="details">Adresse De La Propriete</span>
+                <input type="text" name="Adresse_propriete" id="" value="{{$propriete->Adresse_propriete}}">
             </div>
 
             <div class="input-box">
-                <span class="details">Prenom</span>
-                <input type="text" name="Prenom_proprietaire" id="" placeholder="Entrez votre prenom" value="{{$owner->Prenom_proprietaire}}">
+                <span class="details">Superficie</span>
+                <input type="number" min="50" max="10000" name="Superficie" id="" value="{{$propriete->Superficie}}">
             </div>
 
             <div class="input-box">
-                <span class="details">Date De Naissance</span>
-                <input type="date" name="Date_naissance" id="" placeholder="Entrez votre date de naissance" value="{{$owner->Date_naissance}}">
+                <span class="details">Nombre D'etages</span>
+                <input type="tel" name="Nbre_etage" id="" value="{{$propriete->Nbre_etage}}">
             </div>
 
             <div class="input-box">
-                <span class="details">Lieu De Naissance</span>
-                <input type="tel" name="Lieu_naissance" id="" placeholder="Entrez votre lieu de naissance" value="{{$owner->Lieu_naissance}}">
-            </div>
-
-            <div class="input-box">
-                <span class="details">Code Piece D'identite</span>
-                <input type="text" name="code_piece_identite" id="" placeholder="Entrez votre code de piece d'identite" value="{{$owner->code_piece_identite}}">
-            </div>
-
-            <div class="input-box">
-                <span class="details">Numero Piece D'identite</span>
-                <input type="text" name="Numero_piece_identite" id="" placeholder="Entrez votre numero de piece d'identite" value="{{$owner->Numero_piece_identite}}">
-            </div>
-
-            <div class="input-box">
-                <span class="details">Adresse</span>
-                <input type="text" name="Adresse" id="" placeholder="Entrez votre adresse" value="{{$owner->Adresse}}">
-            </div>
-
-            <div class="input-box">
-                <span class="details">Email</span>
-                <input type="text" name="Email" id="" placeholder="Entrez votre email" value="{{$owner->Email}}">
-            </div>
-
-            <div class="input-box">
-                <span class="details">Genre</span>
-                <select class="form-select" name="genre" required>
-                    @if($owner->genre == "Homme")
-                        <option selected value = "Homme">Homme</option>
-                        <option value="Femme">Femme</option>
-                    @else
-                        <option selected value = "Femme">Femme</option>
-                        <option value="Homme">Homme</option>
-                    @endif
+                <span class="details">Proprietaire</span>
+                <select class="form-select" name="proprietaire_id" required>
+                    <option selected value="{{$propriete->proprietaire_id}}">{{$propriete->proprietaire->Prenom_proprietaire . " " . $propriete->proprietaire->Nom_proprietaire}}</option>
+                    @foreach($owners as $owner)
+                        @if($owner->id != $propriete->proprietaire_id)
+                            <option value="{{$owner->id}}">{{$owner->Prenom_proprietaire. " " . $owner->Nom_proprietaire}}</option>
+                        @endif
+                    @endforeach
                 </select>
             </div>
 
             <div class="input-box">
-                <span class="details">Civilite</span>
-                <select class="form-select" name="civilite" required>
-                    @if($owner->civilite == "Marie")
-                        <option selected value = "Marie">Marie</option>
-                        <option value = "Celibataire">Celibataire</option>
-                        <option value = "Divorce">Divorce</option>
-                    @elseif($owner->civilite == "Celibataire")
-                        <option selected value="Celibataire">Celibataire</option>
-                        <option value="Marie">Marie</option>
-                        <option value="Divorce">Divorce</option>
-                    @else
-                        <option selected value="Divorce">Divorce</option>
-                        <option value="Marie">Marie</option>
-                        <option value="Celibataire">Celibataire</option>
-                    @endif
+                <span class="details">Type De Propriete</span>
+                <select class="form-select" name="type_id" required>
+                    <option selected value ="{{$propriete->type_id}}">{{$propriete->type->Libelle}}</option>
+                    @foreach($types as $type)
+                        @if($type->id != $propriete->type_id)
+                            <option value="{{$type->id}}">{{$type->Libelle}}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Quartier</span>
+                <select class="form-select" name="quartier_id" required>
+                    <option selected value ="{{$propriete->quartier_id}}">{{$propriete->quartier->Libelle_quartier}}</option>
+                    @foreach($neighbourhoods as $neighbourhood)
+                        @if($neighbourhood->id != $propriete->quartier_id)
+                            <option value="{{$neighbourhood->id}}">{{$neighbourhood->Libelle_quartier}}</option>
+                        @endif
+                    @endforeach
                 </select>
             </div>
 

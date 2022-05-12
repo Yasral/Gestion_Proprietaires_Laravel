@@ -6,7 +6,6 @@ use App\Models\Quartier;
 use App\Models\Propriete;
 use App\Models\Proprietaire;
 use Illuminate\Http\Request;
-use App\Models\Type_propriete;
 use App\Models\Type;
 
 class ProprieteController extends Controller
@@ -30,11 +29,10 @@ class ProprieteController extends Controller
     {
         // Recuperation des donnees des proprietaires et des tables systemes
         $owners = Proprietaire::all();
-        $propertiesTypes = Type_propriete::all();
         $types = Type::all();
         $neighbourhoods = Quartier::all();
         
-        return view('propriete.ajout', compact('owners', 'propertiesTypes', 'types', 'neighbourhoods'));
+        return view('propriete.ajout', compact('owners', 'types', 'neighbourhoods'));
     }
 
     /**
@@ -51,12 +49,22 @@ class ProprieteController extends Controller
         $asset->Nbre_etage = $request->Nbre_etage;
         $asset->proprietaire_id = $request->proprietaire_id;
         $asset->type_id = $request->type_id;
-        $asset->type_proprietes_id = $request->type_proprietes_id;
         $asset->quartier_id = $request->quartier_id;
 
         $asset->save();
 
         return redirect('/propriete/liste');
+    }
+
+    public function updateDetail($id)
+    {
+        $propriete = Propriete::find($id);
+        $owners = Proprietaire::all();
+        $types = Type::all();
+        $neighbourhoods = Quartier::all();
+
+        return view('propriete.modificationDetail', compact('propriete', 'owners', 'types', 'neighbourhoods'));
+
     }
 
     /**
@@ -80,9 +88,19 @@ class ProprieteController extends Controller
      * @param  \App\Models\Propriete  $propriete
      * @return \Illuminate\Http\Response
      */
-    public function edit(Propriete $propriete)
+    public function edit(Propriete $propriete, $id, Request $request)
     {
-        //
+        $propriete = Propriete::find($id);
+        $propriete->Adresse_propriete = $request->Adresse_propriete;
+        $propriete->Superficie = $request->Superficie;
+        $propriete->Nbre_etage = $request->Nbre_etage;
+        $propriete->proprietaire_id = $request->proprietaire_id;
+        $propriete->type_id = $request->type_id;
+        $propriete->quartier_id = $request->quartier_id;
+
+        $propriete->save();
+
+        return redirect('propriete/liste');
     }
 
     /**
