@@ -22,6 +22,10 @@ return new class extends Migration
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
+            $table->foreignId('type_id')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->foreignId('type_proprietes_id')
             ->constrained()
             ->onUpdate('cascade')

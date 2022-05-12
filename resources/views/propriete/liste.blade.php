@@ -33,6 +33,7 @@
                                 <td>{{$propriete->Nbre_etage}}</td>
                                 <td>{{$propriete->proprietaire->Prenom_proprietaire . " ". $propriete->proprietaire->Nom_proprietaire}}</td>
                                 <td>{{$propriete->quartier->Libelle_quartier}}</td>
+                                <td>{{$propriete->type->Libelle}}</td>
                                 <td class = "options">
                                     <a class="table-link-padding" href="#">
                                         <span>

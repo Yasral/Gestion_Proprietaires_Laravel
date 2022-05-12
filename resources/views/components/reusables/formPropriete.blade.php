@@ -36,6 +36,16 @@
 
             <div class="input-box">
                 <span class="details">Type De Propriete</span>
+                <select class="form-select" name="type_id" required>
+                    <option selected value ="">Choisisser Le Type De Propriete</option>
+                    @foreach($types as $type)
+                        <option value="{{$type->id}}">{{$type->Libelle}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Type De Propriete</span>
                 <select class="form-select" name="type_proprietes_id" required>
                     <option selected value ="">Choisisser Le Type De Propriete</option>
                     @foreach($propertiesTypes as $propertyType)

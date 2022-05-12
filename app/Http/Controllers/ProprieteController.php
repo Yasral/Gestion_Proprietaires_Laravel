@@ -7,6 +7,7 @@ use App\Models\Propriete;
 use App\Models\Proprietaire;
 use Illuminate\Http\Request;
 use App\Models\Type_propriete;
+use App\Models\Type;
 
 class ProprieteController extends Controller
 {
@@ -30,9 +31,10 @@ class ProprieteController extends Controller
         // Recuperation des donnees des proprietaires et des tables systemes
         $owners = Proprietaire::all();
         $propertiesTypes = Type_propriete::all();
+        $types = Type::all();
         $neighbourhoods = Quartier::all();
         
-        return view('propriete.ajout', compact('owners', 'propertiesTypes', 'neighbourhoods'));
+        return view('propriete.ajout', compact('owners', 'propertiesTypes', 'types', 'neighbourhoods'));
     }
 
     /**
@@ -48,6 +50,7 @@ class ProprieteController extends Controller
         $asset->Superficie = $request->Superficie;
         $asset->Nbre_etage = $request->Nbre_etage;
         $asset->proprietaire_id = $request->proprietaire_id;
+        $asset->type_id = $request->type_id;
         $asset->type_proprietes_id = $request->type_proprietes_id;
         $asset->quartier_id = $request->quartier_id;
 
