@@ -100,7 +100,7 @@ class ProprieteController extends Controller
 
         $propriete->save();
 
-        return redirect('propriete/liste');
+        return redirect('/propriete/liste');
     }
 
     /**
@@ -121,8 +121,10 @@ class ProprieteController extends Controller
      * @param  \App\Models\Propriete  $propriete
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Propriete $propriete)
+    public function destroy(Propriete $propriete, $id)
     {
-        //
+        $propriete = Propriete::find($id);
+        $propriete->delete();
+        return redirect('/propriete/liste');
     }
 }
