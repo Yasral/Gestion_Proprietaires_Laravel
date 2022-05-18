@@ -21,7 +21,7 @@
 
             <div class="input-box">
                 <span class="details">Lieu De Naissance</span>
-                <input type="tel" name="Lieu_naissance" id="" placeholder="Entrez votre lieu de naissance">
+                <input type="text" name="Lieu_naissance" id="" placeholder="Entrez votre lieu de naissance">
             </div>
 
             <div class="input-box">

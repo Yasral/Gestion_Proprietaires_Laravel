@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function(){
     // Route::resource('proprietaire', [ProprietaireController::class, 'create']);
 
     Route::get('/proprietaire', [ProprietaireController::class, 'create'])->name('proprietaire.creer');
-    Route::post('/proprietaire', [ProprietaireController::class, 'store']);
+    Route::post('/proprietaire', [ProprietaireController::class, 'store'])->name('proprietaire.sauvegarder');
     Route::get('/proprietaire/liste', [ProprietaireController::class, 'show'])->name('proprietaire.liste');
     
     Route::get('/proprietaire/edit/{id}', [ProprietaireController::class, 'updateDetail']);
