@@ -203,6 +203,31 @@ return [
             'required' => 'Veuillez choisir une civilite',
         ],
 
+        'Adresse_propriete' =>[
+            'required' => 'Vous devez saisir une adresse valide',
+            'min' => 'Votre adresse doit avoir un minimum de :min characteres',
+        ],
+
+        'Superficie' =>[
+            'required' => 'Vous devez saisir une superficie',
+        ],
+
+        'Nbre_etage' =>[
+            'required' => 'Vous devez attribuer une valeur aux etages',
+        ],
+
+        'proprietaire_id' =>[
+            'required' => 'Vous devez choisir un proprietaire',
+        ],
+
+        'type_id' =>[
+            'required' => 'Vous devez choisir un type de propriete',
+        ],
+
+        'quartier_id' =>[
+            'required' => 'Vous devez choisir un quartier',
+        ],
+
     ],
 
     /*

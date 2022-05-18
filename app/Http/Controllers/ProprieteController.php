@@ -43,6 +43,15 @@ class ProprieteController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'Adresse_propriete' => ['required', 'string', 'min:3'],
+            'Superficie' => ['required'],
+            'Nbre_etage' => ['required'],
+            'proprietaire_id' => ['required'],
+            'type_id' => ['required'],
+            'quartier_id' => ['required'],
+        ]);
+
         $asset = new Propriete();
         $asset->Adresse_propriete = $request->Adresse_propriete;
         $asset->Superficie = $request->Superficie;
@@ -90,6 +99,15 @@ class ProprieteController extends Controller
      */
     public function edit(Propriete $propriete, $id, Request $request)
     {
+        $request->validate([
+            'Adresse_propriete' => ['required', 'string', 'min:3'],
+            'Superficie' => ['required'],
+            'Nbre_etage' => ['required'],
+            'proprietaire_id' => ['required'],
+            'type_id' => ['required'],
+            'quartier_id' => ['required'],
+        ]);
+
         $propriete = Propriete::find($id);
         $propriete->Adresse_propriete = $request->Adresse_propriete;
         $propriete->Superficie = $request->Superficie;

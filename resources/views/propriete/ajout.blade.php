@@ -33,7 +33,7 @@
 
                                 <div>
                                     <x-label for="proprietaire" class="mt-8" :value="__('Proprietaire')" />
-                                    <select name="proprietaire_id" required>
+                                    <select name="proprietaire_id">
                                         <option value="">Choisisser Le Proprietaire</option>
                                         @foreach($owners as $owner)
                                             <option value="{{$owner->id}}">{{$owner->Prenom_proprietaire. " " . $owner->Nom_proprietaire}}</option>
@@ -43,7 +43,7 @@
 
                                 <div>
                                     <x-label for="type_propriete" class="mt-8" :value="__('Type De Propriete')" />
-                                    <select name="type_id" required>
+                                    <select name="type_id">
                                         <option selected value ="">Choisisser Le Type De Propriete</option>
                                         @foreach($types as $type)
                                             <option value="{{$type->id}}">{{$type->Libelle}}</option>
@@ -53,7 +53,7 @@
 
                                 <div>
                                     <x-label for="quartier" class="mt-8" :value="__('Quartier')" />
-                                    <select name="quartier_id" required>
+                                    <select name="quartier_id">
                                         <option selected value ="">Choisisser Le Quartier</option>
                                         @foreach($neighbourhoods as $neighbourhood)
                                             <option value="{{$neighbourhood->id}}">{{$neighbourhood->Libelle_quartier}}</option>
