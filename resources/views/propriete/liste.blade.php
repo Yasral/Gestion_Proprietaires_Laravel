@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Proprietaire') }}
+            {{ __('Propriete') }}
         </h2>
     </x-slot>
 
@@ -11,31 +11,33 @@
                 <table class="border-collapse w-full text-sm text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th scope="col" class="px-6 py-4">NOM</th>
-                            <th scope="col" class="px-6 py-4">PRENOM</th>
-                            <th scope="col" class="px-6 py-4">Numero Identité</th>
-                            <th scope="col" class="px-6 py-4">Civilité</th>
-                            <th scope="col" class="px-6 py-4">Genre</th>
-                            <th scope="col" class="px-6 py-4">Parametres</th>
+                            <th scope="col" class="px-6 py-4">ADRESSE</th>
+                            <th scope="col" class="px-6 py-4">SUPERFICIE</th>
+                            <th scope="col" class="px-6 py-4">NOMBRE ETAGES</th>
+                            <th scope="col" class="px-6 py-4">PROPRIETAIRE</th>
+                            <th scope="col" class="px-6 py-4">TYPE PROPRIETE</th>
+                            <th scope="col" class="px-6 py-4">QUARTIER</th>
+                            <th scope="col" class="px-6 py-4">PARAMETRES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($proprietaires as $proprietaire)
+                        @foreach ($proprietes as $propriete)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <td class="px-6 py-4 text-center">{{$proprietaire->Nom_proprietaire}}</td>
-                                <td class="px-6 py-4 text-center">{{$proprietaire->Prenom_proprietaire}}</td>
-                                <td class="px-6 py-4 text-center">{{$proprietaire->Numero_piece_identite}}</td>
-                                <td class="px-6 py-4 text-center">{{$proprietaire->civilite}}</td>
-                                <td class="px-6 py-4 text-center">{{$proprietaire->genre}}</td>
+                                <td class="px-6 py-4 text-center">{{$propriete->Adresse_propriete}}</td>
+                                <td class="px-6 py-4 text-center">{{$propriete->Superficie}}</td>
+                                <td class="px-6 py-4 text-center">{{$propriete->Nbre_etage}}</td>
+                                <td class="px-6 py-4 text-center">{{$propriete->proprietaire->Prenom_proprietaire . " ". $propriete->proprietaire->Nom_proprietaire}}</td>
+                                <td class="px-6 py-4 text-center">{{$propriete->type->Libelle}}</td>
+                                <td class="px-6 py-4 text-center">{{$propriete->quartier->Libelle_quartier}}</td>
                                 <td class="px-6 py-4 text-center flex justify-between">
                                     
-                                    <a class="table-link-padding" href="{{'/proprietaire/edit/'.$proprietaire->id}}">
+                                    <a class="table-link-padding" href="{{'/propriete/edit/'.$propriete->id}}">
                                         <span>
                                             <ion-icon name="refresh-outline"></ion-icon>
                                         </span>
                                     </a>
 
-                                    <a class="table-link-padding" href="{{'/proprietaire/delete/'.$proprietaire->id}}">
+                                    <a class="table-link-padding" href="{{'/propriete/delete/'.$propriete->id}}">
                                         <span>
                                             <ion-icon name="trash-outline"></ion-icon>
                                         </span>
