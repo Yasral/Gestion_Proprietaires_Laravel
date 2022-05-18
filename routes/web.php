@@ -19,23 +19,32 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
-Route::get('/proprietaire', [ProprietaireController::class, 'create']);
-Route::post('/proprietaire', [ProprietaireController::class, 'store']);
-Route::get('/proprietaire/liste', [ProprietaireController::class, 'show']);
+Route::group(['middleware' => 'auth'], function(){
 
-Route::get('/proprietaire/edit/{id}', [ProprietaireController::class, 'updateDetail']);
-Route::post('/proprietaire/edit/{id}', [ProprietaireController::class, 'edit']);
-Route::get('/proprietaire/delete/{id}', [ProprietaireController::class, 'destroy']);
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::get('/propriete', [ProprieteController::class, 'create']);
-Route::post('/propriete', [ProprieteController::class, 'store']);
-Route::get('/propriete/liste', [ProprieteController::class, 'show']);
+    Route::get('/proprietaire', [ProprietaireController::class, 'create']);
+    Route::post('/proprietaire', [ProprietaireController::class, 'store']);
+    Route::get('/proprietaire/liste', [ProprietaireController::class, 'show']);
+    
+    Route::get('/proprietaire/edit/{id}', [ProprietaireController::class, 'updateDetail']);
+    Route::post('/proprietaire/edit/{id}', [ProprietaireController::class, 'edit']);
+    Route::get('/proprietaire/delete/{id}', [ProprietaireController::class, 'destroy']);
+    
+    Route::get('/propriete', [ProprieteController::class, 'create']);
+    Route::post('/propriete', [ProprieteController::class, 'store']);
+    Route::get('/propriete/liste', [ProprieteController::class, 'show']);
+    
+    Route::get('/propriete/edit/{id}', [ProprieteController::class, 'updateDetail']);
+    Route::post('/propriete/edit/{id}', [ProprieteController::class, 'edit']);
+    Route::get('/propriete/delete/{id}', [ProprieteController::class, 'destroy']);
+    
+});
 
-Route::get('/propriete/edit/{id}', [ProprieteController::class, 'updateDetail']);
-Route::post('/propriete/edit/{id}', [ProprieteController::class, 'edit']);
-Route::get('/propriete/delete/{id}', [ProprieteController::class, 'destroy']);
 require __DIR__.'/auth.php';
