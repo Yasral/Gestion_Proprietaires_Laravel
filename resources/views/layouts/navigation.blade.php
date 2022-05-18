@@ -31,11 +31,11 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-nav-link>
+                                <x-nav-link :href="route('proprietaire.creer')">
                                     {{__('Ajout')}}
                                 </x-nav-link>
 
-                                <x-nav-link>
+                                <x-nav-link :href="route('proprietaire.liste')">
                                     {{__('Liste')}}
                                 </x-nav-link>
                                 
@@ -59,11 +59,11 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-nav-link>
+                                <x-nav-link :href="route('propriete.creer')">
                                     {{__('Ajout')}}
                                 </x-nav-link>
 
-                                <x-nav-link>
+                                <x-nav-link :href="route('propriete.liste')">
                                     {{__('Liste')}}
                                 </x-nav-link>
                                 
