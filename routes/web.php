@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/proprietaire/delete/{id}', [ProprietaireController::class, 'destroy']);
     
     Route::get('/propriete', [ProprieteController::class, 'create'])->name('propriete.creer');
-    Route::post('/propriete', [ProprieteController::class, 'store']);
+    Route::post('/propriete', [ProprieteController::class, 'store'])->name('propriete.sauvegarder');
     Route::get('/propriete/liste', [ProprieteController::class, 'show'])->name('propriete.liste');
     
     Route::get('/propriete/edit/{id}', [ProprieteController::class, 'updateDetail']);
