@@ -148,8 +148,16 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'name' => [
+            'required' => 'Vous devez saisir un nom valide',
+        ],
+
+        'email' => [
+            'required' => 'Vous devez saisir un mail valide',
+        ],
+
+        'password' => [
+            'required' => 'Vous devez saisir un mot de passe valide',
         ],
     ],
 
