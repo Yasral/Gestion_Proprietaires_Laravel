@@ -58,7 +58,7 @@
 
                                 <div>
                                     <x-label for="genre" class="mt-8" :value="__('Genre')" />
-                                    <select name="genre" required>
+                                    <select name="genre">
                                         <option selected value = "Homme">Homme</option>
                                         <option value = "Femme">Femme</option>
                                     </select>
@@ -66,7 +66,7 @@
 
                                 <div class="input-box">
                                     <x-label for="civilite" class="mt-8" :value="__('Civilite')" />
-                                    <select class="form-select" name="civilite" required>
+                                    <select class="form-select" name="civilite">
                                         <option selected value = "Marie">Marie</option>
                                         <option value = "Celibataire">Celibataire</option>
                                         <option value = "Divorce">Divorce</option>

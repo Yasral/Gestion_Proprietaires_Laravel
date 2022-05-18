@@ -159,6 +159,50 @@ return [
         'password' => [
             'required' => 'Vous devez saisir un mot de passe valide',
         ],
+
+        'Nom_proprietaire' => [
+            'required' => 'Vous devez saisir un nom de proprietaire valide',
+            'min' => 'Le nom doit avoir un minimum de :min characteres',
+        ],
+
+        'Prenom_proprietaire' => [
+            'required' => 'Vous devez saisir un prenom de proprietaire valide',
+            'min' => 'Le prenom doit avoir un minimum de :min characteres',
+        ],
+
+        'Date_naissance' => [
+            'required' => 'Vous devez saisir une date de naissance valide',
+            'before' => 'La date de naissance doit etre anterieure au jour actuel',
+        ],
+
+        'Lieu_naissance' => [
+            'required' => 'Vous devez saisir un lieu de naissance valide',
+            'min' => 'Le nom doit avoir un minimum de :min characteres',
+        ],
+
+        'code_piece_identite' => [
+            'required' => 'Vous devez saisir un code valide',
+            'min' => 'Le code doit avoir un minimum de :min characteres',
+        ],
+
+        'Numero_piece_identite' => [
+            'required' => 'Vous devez saisir un numero valide',
+            'min' => 'Le numero doit avoir un minimum de :min characteres',
+        ],
+
+        'Adresse' => [
+            'required' => 'Vous devez saisir une adresse valide',
+            'min' => 'Votre adresse doit avoir un minimum de :min characteres',
+        ],
+
+        'genre' => [
+            'required' => 'Veuillez choisir un genre',
+        ],
+
+        'civilite' => [
+            'required' => 'Veuillez choisir une civilite',
+        ],
+
     ],
 
     /*

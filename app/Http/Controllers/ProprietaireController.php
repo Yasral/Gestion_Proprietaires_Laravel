@@ -33,8 +33,19 @@ class ProprietaireController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) 
     {   
+        $request->validate([
+            'Nom_proprietaire' => ['required', 'string', 'min:3'],
+            'Prenom_proprietaire' => ['required', 'string', 'min:3'],
+            'Date_naissance' => 'required|date|before:today',
+            'Lieu_naissance' => ['required', 'string', 'min:3'],
+            'code_piece_identite' => ['required', 'string', 'min:5'],
+            'Numero_piece_identite' => ['required', 'string', 'min:15'],
+            'Adresse' => ['required', 'string', 'min:5'],
+            'genre' => ['required'],
+            'civilite' => ['required']
+        ]);
 
         $owner = new Proprietaire();
 
@@ -82,6 +93,18 @@ class ProprietaireController extends Controller
      */
     public function edit(Request $request, $id)
     {
+        $request->validate([
+            'Nom_proprietaire' => ['required', 'string', 'min:3'],
+            'Prenom_proprietaire' => ['required', 'string', 'min:3'],
+            'Date_naissance' => 'required|date|before:today',
+            'Lieu_naissance' => ['required', 'string', 'min:3'],
+            'code_piece_identite' => ['required', 'string', 'min:5'],
+            'Numero_piece_identite' => ['required', 'string', 'min:15'],
+            'Adresse' => ['required', 'string', 'min:5'],
+            'genre' => ['required'],
+            'civilite' => ['required']
+        ]);
+        
         $owner = Proprietaire::find($id);
         $owner->Nom_proprietaire = $request->Nom_proprietaire;
         $owner->Prenom_proprietaire = $request->Prenom_proprietaire;
