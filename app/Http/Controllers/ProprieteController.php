@@ -45,7 +45,7 @@ class ProprieteController extends Controller
     {
         $request->validate([
             'Adresse_propriete' => ['required', 'string', 'min:3'],
-            'Superficie' => ['required'],
+            'Superficie' => ['required', 'integer', 'min:3'],
             'Nbre_etage' => ['required'],
             'proprietaire_id' => ['required'],
             'type_id' => ['required'],
